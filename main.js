@@ -8,10 +8,12 @@ ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
 var largura=screen.width;
 var altura=screen.height;
+var Nlargura= largura-70;
+var Naltura= altura-300;
 
 if(largura<992){
-    document.getElementById("myCanvas").width= largura-70;
-    document.getElementById("myCanvas").height=altura-300;
+    document.getElementById("myCanvas").width= Nlargura;
+    document.getElementById("myCanvas").height=Naltura;
     document.body.style.overflow="hidden";
 }
 
@@ -23,11 +25,11 @@ function myTouchStart(e){
 
 canvas.addEventListener("touchmove",myTouchMove);
 function myTouchMove(e){
-    positionX=e.clientX- canvas.offsetLeft;
-    positionY=e.clientY- canvas.offsetTop;
+    positionX=e.touches[0].clientX- canvas.offsetLeft;
+    positionY=e.touches[0].clientY- canvas.offsetTop;
     ctx.beginPath();
-    ctx.strokeStyle=color;
-    ctx.lineWidth=larg;
+    ctx.strokeStyle=red;
+    ctx.lineWidth=2;
     ctx.moveTo(lastpositionX, lastpositionY);
     ctx.lineTo(positionX, positionY);
     ctx.stroke();
